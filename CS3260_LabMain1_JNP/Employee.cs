@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 namespace CS3260_LabMain1_JNP
 {
     enum EType {SALARY, SALES, HOURLY, CONTRACT};
+    ///<summary>
+    /// This class models an employee. It contains key information
+    /// about employees. It is inherited by the other employee types./// </summary>
     abstract class Employee
     {
         public int EmpID;

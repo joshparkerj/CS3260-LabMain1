@@ -1,17 +1,35 @@
-﻿using System;
+﻿// Project Prolog
+// Name: Josh Parker
+// CS3260 Section 001
+// Project: Lab_01
+// Date: 10/19/2018 11:53:57 PM
+// Purpose: This project provides a graphical form for inputting data about employees of a company.
+//
+// I declare that the following code was written by me or provided
+// by the instructor for this project. I understand that copying source
+// code from any other source constitutes plagiarism, and that I will receive
+// a zero on this project if I am found in violation of this policy.
+// ---------------------------------------------------------------------------
+
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CS3260_LabMain1_JNP
 {
     public partial class Form1 : Form
     {
+        BusinessRules empBR;
+        List<Employee> initialEmployees;
+        int EmpType;
+        string first;
+        string last;
+        Employee employeeToDisplay;
+        decimal EmpValue2;
+        decimal EmpValue3;
+        decimal EmpValue4;
+        int EmployeeID;
+
         public Form1()
         {
             InitializeComponent();
@@ -21,6 +39,22 @@ namespace CS3260_LabMain1_JNP
             numericUpDown2.GotFocus += NUDSelectAllOnFocus;
             numericUpDown3.GotFocus += NUDSelectAllOnFocus;
             numericUpDown4.GotFocus += NUDSelectAllOnFocus;
+
+            initialEmployees = new List<Employee>();
+
+            initialEmployees.Add(new Contract(5322, (int)EType.CONTRACT, "Kendrick", "Lamar", (decimal)10.00));
+            initialEmployees.Add(new Contract(7050, (int)EType.CONTRACT, "Selena", "Gomez", (decimal)14.14));
+            initialEmployees.Add(new Contract(6847, (int)EType.CONTRACT, "Ira", "Gershwin", (decimal)20.00));
+            initialEmployees.Add(new Contract(5164, (int)EType.CONTRACT, "Hedy", "Lamarr", (decimal)28.28));
+            initialEmployees.Add(new Sales(4839, (int)EType.SALES, "Flying", "Lotus", (decimal)40000.00, (decimal)15000.00, (decimal)80000.00));
+            initialEmployees.Add(new Sales(8661, (int)EType.SALES, "Jodie", "Foster", (decimal)50000.00, (decimal)45000.00, (decimal)100000.00));
+            initialEmployees.Add(new Sales(7953, (int)EType.SALES, "Zebulon", "Pike", (decimal)60000.00, (decimal)135000.00, (decimal)120000.00));
+            initialEmployees.Add(new Hourly(1882, (int)EType.HOURLY, "Veronica", "Lodge", (decimal)40.00, 40.00));
+            initialEmployees.Add(new Hourly(6926, (int)EType.HOURLY, "Anthony", "Fantano", (decimal)56.57, 50.00));
+            initialEmployees.Add(new Salary(9718, (int)EType.SALARY, "Dorothy", "Gale", (decimal)100000.00));
+
+            empBR = new BusinessRules(initialEmployees);
+            empBR.addToListBox(listBox1);
         }
 
         private void TBSelectAllOnFocus(object sender, EventArgs e)
@@ -32,10 +66,6 @@ namespace CS3260_LabMain1_JNP
         {
             ((NumericUpDown)sender).Select(0, ((NumericUpDown)sender).Text.Length);
         }
-
-        List<Employee> ListOfEmployees = new List<Employee>();
-
-        int EmpType;
 
         private void radioButton4_CheckedChanged(object sender, EventArgs e)
         {
@@ -79,9 +109,6 @@ namespace CS3260_LabMain1_JNP
             label7.Text = "Monthly Salary";
         }
 
-        string first;
-        string last;
-
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
             first = textBox2.Text;
@@ -92,18 +119,57 @@ namespace CS3260_LabMain1_JNP
             last = textBox1.Text;
         }
 
-        int EmployeeID;
-
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             EmployeeID = (int)numericUpDown1.Value;
         }
 
-        Employee employeeToDisplay;
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            EmpValue2 = numericUpDown2.Value;
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            EmpValue3 = numericUpDown3.Value;
+        }
+
+        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
+        {
+            EmpValue4 = numericUpDown4.Value;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (empBR.idExists(EmployeeID))
+            {
+                label24.Visible = true;
+                return;
+            }
+            label24.Visible = false;
+            if (EmpType == (int)EType.CONTRACT)
+            {
+                empBR.addEmployee(new Contract(EmployeeID, EmpType, first, last, EmpValue2));
+            }
+            else if (EmpType == (int)EType.HOURLY)
+            {
+                empBR.addEmployee(new Hourly(EmployeeID, EmpType, first, last, EmpValue2, (double)EmpValue3));
+            }
+            else if (EmpType == (int)EType.SALARY)
+            {
+                empBR.addEmployee(new Salary(EmployeeID, EmpType, first, last, EmpValue2));
+            }
+            else if (EmpType == (int)EType.SALES)
+            {
+                empBR.addEmployee(new Sales(EmployeeID, EmpType, first, last, EmpValue2, EmpValue3, EmpValue4));
+            }
+            listBox1.Items.Clear();
+            empBR.addToListBox(listBox1);
+        }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            employeeToDisplay = ListOfEmployees.Find(employee => employee.EmpID == (int)listBox1.SelectedItem);
+            employeeToDisplay = empBR.getemployee((int)listBox1.SelectedItem);
             label23.Visible = true;
             label11.Visible = true;
             label11.Text = employeeToDisplay.FirstName;
@@ -163,56 +229,21 @@ namespace CS3260_LabMain1_JNP
             }
         }
 
-        decimal EmpValue2;
-        decimal EmpValue3;
-        decimal EmpValue4;
-
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            EmpValue2 = numericUpDown2.Value;
-        }
+            empBR.removeEmployee((int)listBox1.SelectedItem);
+            label18.Visible = false;
+            label19.Visible = false;
+            label20.Visible = false;
+            label21.Visible = false;
+            label15.Visible = false;
+            label13.Visible = false;
+            label11.Visible = false;
+            label23.Visible = false;
+            label17.Visible = false;
 
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
-        {
-            EmpValue3 = numericUpDown3.Value;
-        }
-
-        private void numericUpDown4_ValueChanged(object sender, EventArgs e)
-        {
-            EmpValue4 = numericUpDown4.Value;
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            if (ListOfEmployees.Exists(employee => employee.EmpID == EmployeeID))
-            {
-                label24.Visible = true;
-                return;
-            }
-            label24.Visible = false;
-            if(EmpType == (int)EType.CONTRACT)
-            {
-                ListOfEmployees.Add(new Contract(EmployeeID, EmpType, first, last, EmpValue2));
-            }
-            else if(EmpType == (int)EType.HOURLY)
-            {
-                ListOfEmployees.Add(new Hourly(EmployeeID, EmpType, first, last, EmpValue2, (double)EmpValue3));
-            }
-            else if(EmpType == (int)EType.SALARY)
-            {
-                ListOfEmployees.Add(new Salary(EmployeeID, EmpType, first, last, EmpValue2));
-            }
-            else if(EmpType == (int)EType.SALES)
-            {
-                ListOfEmployees.Add(new Sales(EmployeeID, EmpType, first, last, EmpValue2, EmpValue3, EmpValue4));
-            }
             listBox1.Items.Clear();
-            ListOfEmployees.ForEach(employee => listBox1.Items.Add(employee.EmpID));
-        }
-
-        private void label14_Click(object sender, EventArgs e)
-        {
-
+            empBR.addToListBox(listBox1);
         }
     }
 }

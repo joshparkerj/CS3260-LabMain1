@@ -10,6 +10,12 @@ namespace CS3260_LabMain1_JNP_Test
         [TestMethod]
         public void TestMethod1()
         {
+            //Arrange
+
+            //Act
+
+            //Assert
+
         }
     }
 }

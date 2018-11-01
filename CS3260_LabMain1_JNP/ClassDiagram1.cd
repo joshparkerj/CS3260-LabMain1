@@ -45,8 +45,15 @@
   <Class Name="CS3260_LabMain1_JNP.Form1">
     <Position X="7.5" Y="0.5" Width="4.25" />
     <TypeIdentifier>
-      <HashCode>/yIAAEcAACEAABAAABGACAgSAAAQAAACEChAAIwAgvI=</HashCode>
+      <HashCode>/yIAAEcAACEAABAAABGACAgSAAAQAAACECBAAIwAgvI=</HashCode>
       <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CS3260_LabMain1_JNP.BusinessRules">
+    <Position X="0.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BusinessRules.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="CS3260_LabMain1_JNP.EType">

@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2026
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS3260_LabMain1_JNP", "CS3260_LabMain1_JNP\CS3260_LabMain1_JNP.csproj", "{1D5A946C-7C03-42D1-9CB4-01DAC0ABC321}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS3260_LabMain2_JNP", "CS3260_LabMain1_JNP\CS3260_LabMain2_JNP.csproj", "{1D5A946C-7C03-42D1-9CB4-01DAC0ABC321}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS3260_LabMain1_JNP_Test", "CS3260_LabMain1_JNP_Test\CS3260_LabMain1_JNP_Test.csproj", "{A25C7ACF-59CB-45C6-BFCF-84851D97343E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS3260_LabMain2_JNP_Test", "CS3260_LabMain1_JNP_Test\CS3260_LabMain2_JNP_Test.csproj", "{A25C7ACF-59CB-45C6-BFCF-84851D97343E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

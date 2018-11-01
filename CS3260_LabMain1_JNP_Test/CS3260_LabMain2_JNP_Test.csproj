@@ -56,9 +56,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CS3260_LabMain1_JNP\CS3260_LabMain1_JNP.csproj">
+    <ProjectReference Include="..\CS3260_LabMain1_JNP\CS3260_LabMain2_JNP.csproj">
       <Project>{1d5a946c-7c03-42d1-9cb4-01dac0abc321}</Project>
-      <Name>CS3260_LabMain1_JNP</Name>
+      <Name>CS3260_LabMain2_JNP</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
