@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CS3260_LabMain1_JNP
 {
-    sealed class Sales : Salary
+    [Serializable]
+    public sealed class Sales : Salary
     {
         public decimal Commission;
         public decimal GrossSales;

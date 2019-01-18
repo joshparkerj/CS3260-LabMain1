@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CS3260_LabMain1_JNP
 {
-    sealed class Hourly : Employee
+    [Serializable]
+    public sealed class Hourly : Employee
     {
         public decimal HourlyRate;
         public double HoursWorked;

@@ -46,9 +46,40 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddCourse.Designer.cs">
+      <DependentUpon>AddCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddDepartment.Designer.cs">
+      <DependentUpon>AddDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEducationalBenefits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEducationalBenefits.Designer.cs">
+      <DependentUpon>AddEducationalBenefits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddEmployee.Designer.cs">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddInstitution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddInstitution.Designer.cs">
+      <DependentUpon>AddInstitution.cs</DependentUpon>
+    </Compile>
     <Compile Include="BusinessRules.cs" />
     <Compile Include="Contract.cs" />
     <Compile Include="Employee.cs" />
+    <Compile Include="FileIO.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,10 +87,56 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Hourly.cs" />
+    <Compile Include="IFileAccess.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Salary.cs" />
     <Compile Include="Sales.cs" />
+    <Compile Include="ViewCourse.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewCourse.Designer.cs">
+      <DependentUpon>ViewCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewDepartment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewDepartment.Designer.cs">
+      <DependentUpon>ViewDepartment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewEducationalBenefits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewEducationalBenefits.Designer.cs">
+      <DependentUpon>ViewEducationalBenefits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewEmployee.Designer.cs">
+      <DependentUpon>ViewEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewInstitution.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewInstitution.Designer.cs">
+      <DependentUpon>ViewInstitution.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AddCourse.resx">
+      <DependentUpon>AddCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddDepartment.resx">
+      <DependentUpon>AddDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEducationalBenefits.resx">
+      <DependentUpon>AddEducationalBenefits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddEmployee.resx">
+      <DependentUpon>AddEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddInstitution.resx">
+      <DependentUpon>AddInstitution.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -72,7 +149,23 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ViewCourse.resx">
+      <DependentUpon>ViewCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewDepartment.resx">
+      <DependentUpon>ViewDepartment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewEducationalBenefits.resx">
+      <DependentUpon>ViewEducationalBenefits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewEmployee.resx">
+      <DependentUpon>ViewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewInstitution.resx">
+      <DependentUpon>ViewInstitution.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\DataSources\BusinessRules.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

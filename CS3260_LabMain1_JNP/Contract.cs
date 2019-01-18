@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CS3260_LabMain1_JNP
 {
-    sealed class Contract : Employee
+    [Serializable]
+    public sealed class Contract : Employee
     {
         public decimal ContractWage;
 

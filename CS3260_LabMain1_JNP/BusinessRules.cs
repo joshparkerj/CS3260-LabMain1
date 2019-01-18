@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CS3260_LabMain1_JNP
 {
-    sealed class BusinessRules
+    public sealed class BusinessRules
     {
         List<Employee> employee = new List<Employee>();
 
@@ -39,6 +39,19 @@ namespace CS3260_LabMain1_JNP
         public void addToListBox(System.Windows.Forms.ListBox lb)
         {
             employee.ForEach(emp => lb.Items.Add(emp.EmpID));
+        }
+
+        public SortedDictionary<uint, Employee> getDictionary()
+        {
+            SortedDictionary<uint, Employee> dict = new SortedDictionary<uint, Employee>();
+            employee.ForEach(e => dict.Add((uint)e.EmpID,e));
+            return dict;
+        }
+
+        public void takeDictionary(SortedDictionary<uint, Employee> dict)
+        {
+            employee.Clear();
+            employee = (List<Employee>)dict.Select(e => e.Value).ToList();
         }
 
     }
